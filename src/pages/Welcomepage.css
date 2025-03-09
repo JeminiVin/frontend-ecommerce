@@ -1,0 +1,44 @@
+.welcome-container {
+    text-align: center;
+    padding: 50px;
+    
+  }
+  
+  .hero {
+    background: url('https://source.unsplash.com/1600x900/?shopping,ecommerce') no-repeat center center/cover;
+    color: rgb(192, 57, 57);
+    padding: 100px 20px;
+    background: rgb(40, 30, 30);;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  
+  .categories, .trending, .testimonials {
+    margin: 40px 0;
+  }
+  
+  .category-grid, .product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .category-card, .product-card {
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  
