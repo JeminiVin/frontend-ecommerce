@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useSelector } from "react-redux"; // Import useSelector to access cart
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import API_BASE_URL from "../config"
 
 const Checkout = () => {
     const [address, setAddress] = useState("");
@@ -15,7 +16,7 @@ const Checkout = () => {
     const handleCheckout = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.post("http://localhost:5000/api/orders", 
+            const res = await axios.post(`${API_BASE_URL}/api/orders`, 
                 { address, paymentMethod }, 
                 { headers: { Authorization: `Bearer ${token}` } }
             );

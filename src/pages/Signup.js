@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify CSS
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap
+import API_BASE_URL from "../config"
 
 const Signup = () => {
   const [user, setUser] = useState({ name: '', email: '', password: '' });
@@ -16,7 +17,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', user);
+      const res = await axios.post(`${API_BASE_URL}/api/auth/signup`, user);
       
       // Success Toast Notification
       toast.success(res.data.message || "Signup Successful!", { position: "top-right" });

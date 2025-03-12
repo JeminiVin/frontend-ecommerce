@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config"
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -15,10 +16,11 @@ const Products = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token"); // Check if user is logged in
 
+
   // ✅ Fetch Cart Items to Update UI
   const fetchCart = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/cart", {
+      const res = await axios.get(`${API_BASE_URL}/api/cart`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(addToCart(res.data.items)); // Update Redux Store
@@ -38,7 +40,7 @@ const Products = () => {
     try {
       // 🔥 Add to Cart in Backend
       await axios.post(
-        "http://localhost:5000/api/cart/add",
+        `${API_BASE_URL}/api/cart/add`,
         { productId: product._id, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } }
        
@@ -63,7 +65,7 @@ const Products = () => {
         if (category) params.append("category", category);
         if (search) params.append("search", search);
 
-        const res = await axios.get(`http://localhost:5000/api/products?${params.toString()}`);
+        const res = await axios.get(`${API_BASE_URL}/api/products?${params.toString()}`);
         setProducts(res.data.products);
       } catch (error) {
         console.error("Error fetching products:", error);

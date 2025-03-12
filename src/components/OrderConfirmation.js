@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import API_BASE_URL from "../config";
 
 const OrderConfirmation = () => {
   const [order, setOrder] = useState(null);
@@ -19,7 +20,7 @@ const OrderConfirmation = () => {
     const fetchOrderDetails = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`http://localhost:5000/api/orders/${orderId}`, {
+        const res = await axios.get(`${API_BASE_URL}/api/orders/${orderId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setOrder(res.data);
@@ -58,6 +59,7 @@ const OrderConfirmation = () => {
       <button className="btn btn-primary w-100 mt-3" onClick={() => navigate("/dashboard")}>
         Go to Dashboard
       </button>
+      <h2>Check confirmation email</h2>
     </div>
   );
 };

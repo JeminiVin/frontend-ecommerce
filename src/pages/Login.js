@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 import "bootstrap/dist/css/bootstrap.min.css";
+import API_BASE_URL from "../config"
 
 const Login = () => {
 
@@ -18,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", user);
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, user);
       localStorage.setItem("token", res.data.token);
 
       // Success Toast

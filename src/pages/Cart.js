@@ -5,6 +5,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Cart = () => {
     }
   
     try {
-      const res = await axios.get("http://localhost:5000/api/cart/", {
+      const res = await axios.get(`${API_BASE_URL}/api/cart/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setBackendCart(res.data.items || []); // 🔥 Always ensure an array!
@@ -44,7 +45,7 @@ const Cart = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/cart/add",
+        `${API_BASE_URL}/api/cart/add`,
         { productId, quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -64,7 +65,7 @@ const Cart = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/cart/add",
+        `${API_BASE_URL}/api/cart/add`,
         { productId, quantity: newQuantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -81,7 +82,7 @@ const Cart = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.delete(`http://localhost:5000/api/cart/remove/${productId}`, {
+      await axios.delete(`${API_BASE_URL}/api/cart/remove/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
