@@ -92,12 +92,7 @@ const Products = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <select className="form-select w-25" onChange={(e) => setCategory(e.target.value)}>
-          <option value="">All Categories</option>
-          <option value="electronics">Electronics</option>
-          <option value="clothing">Clothing</option>
-          <option value="books">Books</option>
-        </select>
+       
       </div>
 
       {/* Product Grid */}
