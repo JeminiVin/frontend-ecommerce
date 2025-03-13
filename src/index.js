@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // ✅ Import Bootstrap CSS
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import reportWebVitals from './reportWebVitals';
 import { store } from "./store/store"
 import {Provider} from "react-redux"
