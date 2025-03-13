@@ -40,20 +40,13 @@ const Navbar = () => {
             
           </ul>
 
-          {/* Search Bar */}
-          <form className="d-flex ms-3">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-primary" type="submit">Search</button>
-          </form>
+          
 
           {/* Icons: Cart & User Login */}
           <ul className="navbar-nav ms-3">
             <li className="nav-item">
               <Link className="nav-link position-relative" to="/cart">
                 <FaShoppingCart size={20} />
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  2 {/* Example cart count */}
-                </span>
               </Link>
             </li>
             <li className="nav-item ms-2">
