@@ -5,6 +5,7 @@ import {Routes, Route} from "react-router-dom"
 import Navbar from './components/Navbar';
 import { ToastContainer } from 'react-toastify';
 import Login from './pages/Login';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Product from "./pages/Products";
